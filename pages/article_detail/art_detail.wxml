@@ -1,0 +1,100 @@
+<import src="../../wxParse/wxParse.wxml" />
+
+<view class="container">
+  <scroll-view class="news" scroll-y="true" lower-threshold="1" bindscrolltolower="scrollLoadNews" style="height: {{ windowheight }}px;">
+    <view class="header_pic">
+      <image src='{{ pic }}'></image>
+    </view>
+    <view class="audio_content">
+      <view class="audio_title">
+        <title style="font-weight:bold;font-size: 44rpx;">{{ titles }}</title>
+      </view>
+      <view class="audio_detail">
+        <!-- <image src='../../image/play2.png'></image> -->
+        <text style="margin-right:30rpx;">{{ palytimes }}次阅读</text>
+        <text>{{ createtime }}</text>
+      </view>
+    </view>
+    <view class="line_css"></view>
+    <view class="wxParse" style="padding-left: 20rpx;padding-right: 20rpx;">
+      <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    </view>
+    <view class="line_css"></view>
+    <view class="audio_content">
+      <view class="audio_comment">
+        <view class="com_title">
+          <text style="font-size:35rpx;">最新留言</text>
+        </view>
+        <view class="com_list" wx:if="{{ !art_isempty }}">
+
+          <block wx:for="{{ commentlist }}" wx:key="comment_id">
+            <view class="com_single">
+              <view class="single_pic">
+                <image src='{{ item.pic }}'></image>
+              </view>
+              <view class="single_title">
+                <view class="showcom">
+                  <text style="color:#FF7F00">{{ item.nick_name }}</text>
+                </view>
+                <view class="showcom">
+                  <text style="color:#cdcdcd;font-size:30rpx;">{{ item.create_at }}</text>
+                </view>
+                <view class="showcom">
+                  <text>{{ item.content }}</text>
+                </view>
+                <view class="reply" wx:if="{{item.comments}}">
+                  <view class="replay1">
+                    <text style="color:#28a3a3">作者回复</text>
+                  </view>
+                  <view class="replay2" style="margin-left: 20rpx;">
+                    <text>{{item.comments}}</text>
+                  </view>
+                </view>
+                <view class="line_com"></view>
+              </view>
+            </view>
+          </block>
+          <view class="nomore">
+            <image src='../../image/nomore.png'></image>
+          </view>
+        </view>
+        <view wx:else class="nomore">
+          <image src='../../image/nomore_replay.png'></image>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+  <!-- <modal hidden="{{hidden}}" title="我要留言" confirm-text="确定" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" no-cancel="{{nocancel}}" >
+    <textarea  placeholder="说些什么..." style="width: 100%;border:1rpx solid #ececec ;border-radius:10rpx;" bindinput='comment_content' fixed='true' cursor-cursor-spacing='400px;'></textarea>
+</modal> -->
+
+  <!--弹窗-->
+  <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{ !hidden}}"></view>
+  <view class="modal-dialog" wx:if="{{ !hidden}}">
+    <view class="modal-title">我要留言</view>
+    <view class="modal-content">
+      <view class="modal-input">
+        <textarea placeholder="说些什么..." style="width: 100%;height:80px;border:1rpx solid #ececec ;border-radius:10rpx;" bindinput='comment_content' auto-focus></textarea>
+      </view>
+    </view>
+    <view class="modal-footer">
+      <view class="btn-cancel" bindtap="cancel" data-status="cancel">取消</view>
+      <view class="btn-confirm" bindtap="confirm" data-status="confirm">确定</view>
+    </view>
+  </view>
+
+
+  <view class="replay_box">
+    <view class="inputbox" bindtap='showcombox'>
+      <text style="margin-left:20rpx;font-size: 30rpx;color:#bfbfbf;">我要留言...</text>
+    </view>
+    <image src='../../image/coment.png' bindtap='showcombox'></image>
+    <view wx:if="{{ iscollect && islogin }}">
+      <image src='../../image/collect.png' bindtap='Changecollect'></image>
+    </view>
+    <view wx:if="{{ !iscollect && islogin }}">
+      <image src='../../image/collect_select.png' bindtap='Changecollect'></image>
+    </view>
+    <!-- <image src='../../image/share.png'></image> -->
+  </view>
+</view>

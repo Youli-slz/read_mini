@@ -1,0 +1,36 @@
+<!--morePage.wxml-->
+<view class="main">
+  <scroll-view class="news" scroll-y="true" bindscrolltolower="scrollLoadNews" style="height: {{windowheight}}px;">
+    <block wx:for="{{ newlist }}" wx:key="dynamic_id">
+      <view class="single_mes" bindtap="todetailBylist" data-dynamic_id="{{item.dynamic_id}}" data-title="{{ item.title }}" data-pic="{{ item.pic }}" data-is_collect="{{ item.is_collect }}">
+        <view class="single_pic">
+          <image src="{{ item.pic }}" lazy-load='true'></image>
+        </view>
+        <view class="new_content">
+          <view class="new_contitle">
+            <text style="font-size:30rpx;">{{ item.title }}</text>
+          </view>
+          <view class="new_contitle">
+          </view>
+          <view class="detail_mes">
+            <view class="jilu" style="width: 120rpx;">
+              <image src="../../image/readfree_06.png"></image>
+              <text class="mes_new">{{ item.count }}</text>
+            </view>
+            <view class="jilu" style="width: 120rpx;">
+              <image src="../../image/readfree_08.png"></image>
+              <text class="mes_new">{{ item.comment_count }}</text>
+            </view>
+            <view class="jilu2">
+              <text class="detail_font">{{ item.create_at }}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="line_css"></view>
+    </block>
+    <view class="emptypic">
+      <image src="../../image/nomore.png"></image>
+    </view>
+  </scroll-view>
+</view>

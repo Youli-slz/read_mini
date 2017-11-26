@@ -1,0 +1,130 @@
+/**index.wxss**/
+.info{
+  width: 100%;
+  height:365rpx;
+     -webkit-filter: blur(3px);
+     -moz-filter: blur(10%);
+     -ms-filter: blur(3px);   
+     filter: blur(1px) opacity(70%); 
+     position: relative;
+}
+.userinfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  top: 30rpx;
+  position: absolute;
+  height: 365rpx;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #ffffff;
+  font-size: 30rpx;
+}
+
+.empty_coll1{
+  display: flex;
+  justify-content: center;
+}
+.empty_coll1 image{
+  margin-top: 30rpx;
+  width:211rpx;
+  height: 303rpx;
+}
+.empty_coll2{
+  display: flex;
+  justify-content: center;
+}
+.empty_coll2 image{
+  margin-top: 30rpx;
+  width:279rpx;
+  height: 107rpx;
+}
+
+
+.single_mes{
+  display: flex;
+   flex-direction: row;
+  justify-content: flex-start;
+  margin-bottom: 40rpx; 
+  width: 100%;
+  /* justify-content: space-between;
+  align-items: center; */
+}
+.single_pic{
+  display: flex;
+  width: 240rpx;
+  height: 181rpx;
+  justify-content: space-between;
+  margin-right: 50rpx;
+}
+.single_pic image{
+  width: 100%;
+  height: 181rpx;
+  border-radius: 10rpx;
+  /* margin-right: 40rpx; */
+}
+.detail_mes{
+    display: flex; 
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.new_contitle{
+  width:100%;
+  margin-bottom:20rpx;
+  display: -webkit-box !important;
+  overflow: hidden;   /* 超出一行自动隐藏  */
+  text-overflow: ellipsis; /* 文字隐藏后添加省略号  */
+  /* white-space: nowrap;  强制不换行   */
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.jilu{
+  display: flex;
+  align-items:center;
+}
+.jilu2 {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.jilu image{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 5rpx;
+
+}
+.new_content{
+  width: 52%;
+   display: flex;
+flex-direction: column;
+  justify-content: space-between; 
+
+}
+.mes_new{
+  font-size: 30rpx;
+  color: #bfbfbf;
+   margin-right: 30rpx; 
+}
+.detail_font{
+  font-size:30rpx;
+  color: #bfbfbf;
+  /* margin-left: 25%;  */
+}
+.line_css{
+  height:1px;
+  background: #f3f3f3;
+  /* margin:0 10rpx; */
+  margin-bottom: 30rpx;
+}

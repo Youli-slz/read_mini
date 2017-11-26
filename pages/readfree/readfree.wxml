@@ -1,0 +1,69 @@
+<view class="container">
+  <view class="page">
+    <view class="page-section page-section-spacing swiper" wx:if="{{!isemptypic}}">
+      <!--如果没有轮播图则不显示 -->
+      <swiper indicator-dots="true" autoplay="true" circular="true" interval="5000" duration="500" style="height:400rpx;">
+        <block wx:for="{{ pic }}" wx:key="*this">
+          <swiper-item>
+            <image src="{{ item.pic_url }}" class="slide-image" style="width:100%;height:100%;" mode="scaleToFill" bindtap='pictopage' data-url='{{ item.url }}' data-description='{{item.description}}' />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <view class="list_title">
+      <view class="list_header">
+        <view class="list_new">
+          <image src="../../image/border_1.png" style="height:30rpx;width:30rpx;"></image>
+          <text style="font-size:35rpx;">最新</text>
+        </view>
+        <view class="list_more" bindtap="toMorePage">
+          <text style="font-size:27rpx;color:#bfbfbf;">查看全部</text>
+          <image src="../../image/jian.png" style="height: 20rpx;width: 20rpx;"></image>
+        </view>
+      </view>
+
+      <view class="content_list">
+        <block wx:for="{{ newlist }}" wx:key="dynamic_id">
+          <view class="single_mes" bindtap="todetailBylist" data-dynamic_id="{{item.dynamic_id}}" data-title="{{ item.title }}" data-pic="{{ item.pic }}" data-is_collect="{{ item.is_collect }}">
+            <view class="single_pic">
+              <image src="{{ item.pic }}" lazy-load='true'></image>
+            </view>
+            <view class="new_content">
+              <view class="new_contitle">
+                <text style="font-size:30rpx;">{{ item.title }}</text>
+              </view>
+
+              <view class="detail_mes">
+                <view class="jilu" >
+                  <image src="../../image/readfree_06.png"></image>
+                  <text class="mes_new">{{ item.count }}</text>
+                </view>
+                <view class="jilu">
+                  <image src="../../image/readfree_08.png"></image>
+                  <text class="mes_new">{{ item.comment_count }}</text>
+                </view>
+                <view class="jilu2">
+                  <text class="detail_font">{{ item.create_at }}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="line_css"></view>
+        </block>
+      </view>
+    </view>
+
+
+
+    <!--下面6行代码显示右下角的小播放圆框  -->
+    <view class="CirPlay" wx:if="{{ Cirpic != '' }}">
+      <image src="{{ Cirpic }}"></image>
+    </view>
+    <view class="Cirgif" wx:if="{{ Cirpic != '' }}">
+      <image src="{{ srcofcir }}" bindtap="todetail2"></image>
+    </view>
+    <view class="new_readfree_list">
+    </view>
+  </view>
+</view>

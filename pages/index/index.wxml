@@ -1,0 +1,46 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="info" style="background: url('http://7xld1x.com1.z0.glb.clouddn.com/Fuvb7hh_V8LEBSxOYLUuzhj4fEX0') no-repeat;  background-size: 100% 100%;"></view>
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+  <view wx:if="{{ isempty }}">
+    <view class="empty_coll1">
+      <image src='../../image/collect_04.png'></image>
+    </view>
+    <view class="empty_coll2" bindtap='toreadfree'>
+      <image src='../../image/collect_08.png'></image>
+    </view>
+  </view>
+  <view wx:else style="margin-top: 30rpx;margin-right: 20rpx;margin-left: 20rpx;">
+    <block wx:for="{{ collects }}" wx:key="dynamic_id">
+      <view class="single_mes" bindtap="todetailBylist" data-dynamic_id="{{item.dynamic_id}}" data-title="{{ item.title }}">
+        <view class="single_pic">
+          <image src="{{ item.pic }}"></image>
+        </view>
+        <view class="new_content">
+          <view class="new_contitle">
+            <text style="font-size:30rpx;">{{ item.title }}</text>
+          </view>
+          <view class="new_contitle">
+          </view>
+          <view class="detail_mes">
+            <view class="jilu">
+              <image src="../../image/readfree_06.png"></image>
+              <text class="mes_new">{{ item.count }}</text>
+            </view>
+            <view class="jilu">
+              <image src="../../image/readfree_08.png"></image>
+              <text class="mes_new">{{ item.comment_count }}</text>
+            </view>
+            <view class="jilu2">
+              <text class="detail_font">{{ item.create_at }}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="line_css"></view>
+    </block>
+  </view>
+</view>

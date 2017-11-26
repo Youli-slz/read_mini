@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/article/article",
+    "pages/readfree/readfree",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/more_list/morePage",
+    "pages/play/play_page",
+    "pages/article_detail/art_detail",
+    "pages/more_atr/morePage"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "共读夜听",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#28a3a3",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/article/article",
+        "iconPath": "image/article_tab.png",
+        "selectedIconPath": "image/article_tab_selected.png",
+        "text": "美文"
+      },
+      {
+        "pagePath": "pages/readfree/readfree",
+        "iconPath": "image/readfree_tab.png",
+        "selectedIconPath": "image/readfree_tab_selected.png",
+        "text": "夜听"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/user_tab.png",
+        "selectedIconPath": "image/user_tab_selected.png",
+        "text": "我的"
+      }
+    ]
+  }
+}
