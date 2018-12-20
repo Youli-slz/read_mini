@@ -21,8 +21,8 @@
         </view>
         <view class="pro">
             <view class="proright"><text style="color:#8a8a8a;">{{starttime}}</text></view>  
-          <view class="procenter body-view">
-            <slider bindchange="sliderchange" value="{{offset}}" min="0" max="{{max}}" activeColor="#28a3a3"/>
+          <view class="procenter body-view" style="display:flex;align-items:center;height: 100rpx;">
+            <slider bindchange="sliderchange" value="{{offset}}" min="0" max="{{max}}" block-size="8" activeColor="#28a3a3" style="margin: 0;"/>
           </view>
           <view class="proleft"><text style="color:#8a8a8a;">{{alltime}}</text></view>
 
